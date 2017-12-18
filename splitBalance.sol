@@ -8,7 +8,7 @@ contract PaymentContract{
     //our address (creator of the contract)
     address public minter;
     //OUR share in percent. 51000 = 51.000%
-    //this is an int for now, need to change after I did some read-ups
+    //this is an int for now, need to change after I did some read-ups since there don't seem to be floats.
     uint public SRSharePercentage;
     
     
@@ -31,7 +31,7 @@ contract PaymentContract{
         uint theirMoney = balance - ourMoney;
         
         for(uint i; i < authorAdresses.length; i++){
-            authorAdresses[i].send(theirMoney/3);
+            authorAdresses[i].send(theirMoney/authorAdresses.length);
         }
     }
 
